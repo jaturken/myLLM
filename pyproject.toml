@@ -1,0 +1,40 @@
+[project]
+name = "myllm"
+version = "0.1.0"
+description = "LLM implementation, based on Sebastian Raschka's book 'Build A Large Language Model(From Scratch)'."
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "torch>=2.2.2,<2.6; sys_platform == 'darwin' and platform_machine == 'x86_64' and python_version <= '3.14'",
+    "torch>=2.2.2; sys_platform == 'darwin' and platform_machine == 'arm64' and python_version <= '3.14'",
+    "torch>=2.2.2; sys_platform == 'linux' and python_version <= '3.14'",
+    "torch>=2.2.2; sys_platform == 'win32' and python_version <= '3.14'",
+    "tiktoken>=0.5.1",
+    "tqdm>=4.66.1",
+    "numpy>=1.26",
+]
+
+[build-system]
+requires = ["uv_build>=0.9,<0.10"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "tensorflow>=2.16.2; sys_platform == 'darwin' and platform_machine == 'x86_64' and python_version < '3.13'",
+    "tensorflow>=2.18.0; sys_platform == 'darwin' and platform_machine == 'arm64' and python_version < '3.13'",
+    "tensorflow-cpu>=2.18.0; sys_platform == 'linux' and platform_machine == 'x86_64' and python_version < '3.13'",
+    "tensorflow>=2.18.0; sys_platform == 'linux' and platform_machine == 'aarch64' and python_version < '3.13'",
+    "tensorflow-cpu>=2.18.0; sys_platform == 'win32' and python_version < '3.13'",
+    "jupyterlab>=4.0",
+    "matplotlib>=3.7.1",
+    "pandas>=2.2.1",
+]
+
+[tool.uv]
+# Intel macOS is unsupported: its torch builds (<2.6) have no Python 3.14 wheels
+environments = [
+    "sys_platform == 'linux'",
+    "sys_platform == 'win32'",
+    "sys_platform == 'darwin' and platform_machine == 'arm64'",
+]
