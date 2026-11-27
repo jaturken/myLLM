@@ -1,6 +1,6 @@
 # myLLM
 
-A from-scratch GPT-style large language model in PyTorch. The goal of this project is to reproduce and play around with the logic of LLMs, following Sebastian Raschka's book [*Build a Large Language Model (From Scratch)*](https://www.manning.com/books/build-a-large-language-model-from-scratch).
+A GPT-style large language model in PyTorch. The goal of this project is to reproduce and play around the logic of LLMs, following Sebastian Raschka's book [*Build a Large Language Model (From Scratch)*](https://www.manning.com/books/build-a-large-language-model-from-scratch).
 
 The code is a packaged, modular version of the book's GPT-2 (124M) implementation. It is a learning project, not a production library.
 
